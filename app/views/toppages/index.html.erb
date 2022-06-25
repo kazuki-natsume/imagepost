@@ -1,16 +1,22 @@
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-sm-4">
+    <span class="border-bottom">
+    <div class="offset-sm-4 col-sm-4">
       <%= form_with(model: @post) do |f| %>
         <div class="mb-3">
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
-          <%= f.label :image %>
         </div>
-        <%= f.file_field :image, class: 'btn btn-dark w-100 mb-2'%>
-        <%= f.submit '投稿', class: 'btn btn-dark w-100' %>
+        <div class="mb-3">
+          <%= f.file_field :image2, class: 'btn btn-dark w-100'%>
+          <%= f.hidden_field :image_cache %>
+        </div>
+        <%= f.submit '投稿', class: 'btn btn-dark w-100 mb-2' %>
       <% end %>
-    </aside>
-    <div class="col-sm-8">
+    </div>
+    </span>
+  </div>
+  <div class="row">
+    <div class="offset-sm-4 col-sm-4">
       <%= render 'posts/posts', posts: @posts %>
     </div>
   </div>

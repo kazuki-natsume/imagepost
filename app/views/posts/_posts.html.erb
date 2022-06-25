@@ -15,9 +15,9 @@
             <p><%= post.content %></p>
             <img class="rounded img-fluid" src="<%= post.image2 %>" alt="">
           </div>
-          <div>
+          <div class="mb-3">
             <% if current_user == post.user %>
-              <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-dark btn-sm' %>
+              <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-dark btn-sm mt-2' %>
             <% end %>
           </div>
         </div>

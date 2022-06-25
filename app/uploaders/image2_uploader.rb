@@ -47,4 +47,5 @@ class Image2Uploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  process :resize_to_limit => [700, 700]
 end
