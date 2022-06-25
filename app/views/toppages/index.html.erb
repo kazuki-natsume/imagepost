@@ -1,5 +1,19 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @post) do |f| %>
+        <div class="mb-3">
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+          <%= f.label :image %>
+        </div>
+        <%= f.file_field :image, class: 'btn btn-dark w-100 mb-2'%>
+        <%= f.submit '投稿', class: 'btn btn-dark w-100' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'posts/posts', posts: @posts %>
+    </div>
+  </div>
 <% else %>
   <div class="border border-dark">
     <div class="text-center text-dark fst-italic mb-5 mt-3">
@@ -7,8 +21,8 @@
     </div>
   </div>
   <div class="d-flex justify-content-center">
-  <%= link_to '会員登録', signup_path, class: 'btn btn-dark me-2' %>
-  <%= link_to 'ログイン', login_path, class: 'btn btn-dark ms-2' %>
+  <%= link_to '会員登録', signup_path, class: 'btn btn-dark me-3' %>
+  <%= link_to 'ログイン', login_path, class: 'btn btn-dark ms-3' %>
   </div>
 <% end %>
 

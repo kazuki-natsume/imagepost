@@ -1,0 +1,28 @@
+<% if posts.any? %>
+  <ul class="list-unstyled mt-2">
+    <% posts.each do |post| %>
+      <li class="d-flex">
+        <% if post.user.image? %>
+          <image src="<%= post.user.image %>" alt="" class="rounded me-2" width="64" height="64">
+        <% else %>
+          <img class="rounded me-2 mb-5" src="<%= gravatar_url(post.user, { size: 64 }) %>" alt="">
+        <% end %>
+        <div>
+          <div>
+            <%= link_to post.user.name, user_path(post.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= post.created_at %></span>
+          </div>
+          <div>
+            <p><%= post.content %></p>
+            <img class="rounded img-fluid" src="<%= post.image2 %>" alt="">
+          </div>
+          <div>
+            <% if current_user == post.user %>
+              <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-dark btn-sm' %>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>
