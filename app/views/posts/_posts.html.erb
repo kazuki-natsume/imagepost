@@ -15,9 +15,12 @@
             <p><%= post.content %></p>
             <img class="rounded img-fluid" src="<%= post.image2 %>" alt="">
           </div>
-          <div class="mb-3">
+          <div class="d-flex align-items-start">
+            <div class="mt-2 mb-4">
+              <%= render 'favorites/like_button', post: post %>
+            </div>
             <% if current_user == post.user %>
-              <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-dark btn-sm mt-2' %>
+              <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-dark btn-sm mt-2 mb-4 ms-2' %>
             <% end %>
           </div>
         </div>

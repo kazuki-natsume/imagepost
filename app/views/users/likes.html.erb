@@ -21,6 +21,6 @@
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー<br>  <span class="badge bg-dark"><%= @count_followers %></span></a></li>
       <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">いいね<br>  <span class="badge bg-dark"><%= @count_favorites %></span></a></li>
     </ul>
-    <%= render 'posts/posts', posts: @posts %>
+    <%= render 'users/likes', favorites: @favorites %>
   </div>
 </div>

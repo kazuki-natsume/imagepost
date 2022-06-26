@@ -1,0 +1,20 @@
+<ul class="list-unstyled mt-2">
+  <% favorites.each do |favorite| %>
+    <li class="d-flex mb-3">
+      <% if favorite.post.user.image? %>
+        <image src="<%= favorite.post.user.image %>" alt="" class="rounded me-2" width="64" height="64">
+      <% else %>
+        <img src="<%= gravatar_url(favorite.post.user) %>" alt="" class="rounded me-2 mb-5" width="64" height="64">
+      <% end %>
+      <div>
+        <div>
+          <%= link_to favorite.post.user.name, user_path(favorite.post.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= favorite.created_at %></span>
+        </div>
+        <div>
+          <p><%= favorite.post.content %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<%== pagy_bootstrap_nav(@pagy) %>
