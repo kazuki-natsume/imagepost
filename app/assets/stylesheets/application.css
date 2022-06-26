@@ -3,3 +3,9 @@
   margin: 100px 100px 20px;
 }
 
+.btn-outline-dark:hover {
+  background-color: transparent;
+  border-color: Black;
+  color: Black;
+}
+

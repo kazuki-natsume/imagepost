@@ -5,7 +5,7 @@
         <% if post.user.image? %>
           <image src="<%= post.user.image %>" alt="" class="rounded me-2" width="64" height="64">
         <% else %>
-          <img class="rounded me-2 mb-5" src="<%= gravatar_url(post.user, { size: 64 }) %>" alt="">
+          <img src="<%= gravatar_url(post.user) %>" alt="" class="rounded me-2 mb-5" width="64" height="64">
         <% end %>
         <div>
           <div>
