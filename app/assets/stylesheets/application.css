@@ -9,3 +9,15 @@
   color: Black;
 }
 
+.like-icon {
+  margin-top: 2px;
+  width: 30px;
+  height: 30px;
+  filter: invert(15%) sepia(95%) saturate(6932%) hue-rotate(358deg) brightness(80%) contrast(112%);
+}
+
+.unlike-icon {
+  margin-top: 2px;
+  width: 30px;
+  height: 30px;
+}
