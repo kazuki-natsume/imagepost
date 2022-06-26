@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_url
     else
-      @pagy, @posts = pagy(current_user.posts.order(id: :desc))
+      @pagy, @posts = pagy(current_user.feed_posts.order(id: :desc))
       render 'toppages/index'
     end
   end
