@@ -12,9 +12,10 @@
         <% end %>
       </div>
     </div>
-    <%= render 'relationships/follow_button', user: @user %>
     <% if current_user == @user %>
       <%= link_to 'プロフィール更新', edit_user_path, class: 'btn btn-dark w-100 mt-2' %>
+    <% else %>
+      <%= render 'relationships/follow_button', user: @user %>
     <% end %>
   </aside>
   <div class="col-sm-8">
